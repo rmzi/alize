@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://etbhmbasgscy"]
+
+[ext_resource type="PackedScene" uid="uid://cpexn642xtacl" path="res://Player/player.tscn" id="1_rupst"]
+[ext_resource type="PackedScene" uid="uid://cslxedd07esg5" path="res://Tile Maps/nowadays.tscn" id="2_wt17y"]
+[ext_resource type="PackedScene" uid="uid://ck8fr67uvk2c0" path="res://MusicGear/speaker_big.tscn" id="3_is3ju"]
+[ext_resource type="PackedScene" uid="uid://dlrgspa78u0xy" path="res://DJ/dj.tscn" id="3_m8u5f"]
+[ext_resource type="PackedScene" uid="uid://df0ryjff2wu7u" path="res://MusicGear/speaker_small.tscn" id="5_o00ia"]
+
+[node name="Playground" type="Node2D"]
+
+[node name="nowadays" parent="." instance=ExtResource("2_wt17y")]
+
+[node name="SoundSystem" type="Node" parent="nowadays"]
+
+[node name="DJ" parent="nowadays/SoundSystem" instance=ExtResource("3_m8u5f")]
+position = Vector2(245, 86)
+scale = Vector2(1, 0.969303)
+
+[node name="SpeakerBig" parent="nowadays/SoundSystem" instance=ExtResource("3_is3ju")]
+z_index = 1
+position = Vector2(177, 94)
+
+[node name="SpeakerBig2" parent="nowadays/SoundSystem" instance=ExtResource("3_is3ju")]
+z_index = 1
+position = Vector2(313, 94)
+
+[node name="SpeakerSmall" parent="nowadays/SoundSystem" instance=ExtResource("5_o00ia")]
+position = Vector2(140, 106)
+
+[node name="SpeakerSmall2" parent="nowadays/SoundSystem" instance=ExtResource("5_o00ia")]
+position = Vector2(350, 106)
+
+[node name="Player" parent="." instance=ExtResource("1_rupst")]
+position = Vector2(228, 176)
+scale = Vector2(2, 2)

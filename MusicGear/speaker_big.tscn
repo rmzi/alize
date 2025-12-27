@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://ck8fr67uvk2c0"]
+
+[ext_resource type="Script" uid="uid://c6mo7njyryt22" path="res://MusicGear/speaker.gd" id="1_4riro"]
+[ext_resource type="Texture2D" uid="uid://2vdi574lsk1m" path="res://MusicGear/Sprites/6_Music_and_sport_32x32.png" id="1_5rpfh"]
+[ext_resource type="Animation" uid="uid://cvyuuf48tulpl" path="res://MusicGear/Animations/bump.res" id="2_ci36n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rpfh"]
+size = Vector2(32, 49)
+
+[sub_resource type="Animation" id="Animation_ci36n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4riro"]
+_data = {
+&"RESET": SubResource("Animation_ci36n"),
+&"bump": ExtResource("2_ci36n")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7vr7g"]
+
+[node name="SpeakerBig" type="StaticBody2D"]
+collision_layer = 16
+script = ExtResource("1_4riro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_5rpfh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5rpfh")
+region_enabled = true
+region_rect = Rect2(31.5732, 1229.94, 32.2963, 64.2964)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4riro"),
+&"VALUETRAP": SubResource("AnimationLibrary_7vr7g")
+}
